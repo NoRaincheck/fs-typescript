@@ -2,10 +2,10 @@
   "type": "module",
   "scripts": {
     "calculateBmi": "cd healthapp && tsc && node bmiCalculator.ts",
-
     "calculateExercises": "cd healthapp && tsc && node exerciseCalculator.ts"
   },
   "devDependencies": {
+    "@types/node": "^25.9.1",
     "typescript": "^6.0.3"
   }
 }

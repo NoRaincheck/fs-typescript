@@ -1,3 +1,8 @@
+interface ExerciseValues {
+  dailyExerciseHours: Array<number>;
+  targetDailyHours: number;
+}
+
 interface Result {
   periodLength: number;
   trainingDays: number;
@@ -7,6 +12,18 @@ interface Result {
   target: number;
   average: number;
 }
+
+const parseExerciseArguments = (args: string[]): ExerciseValues => {
+  if (args.length < 4) {
+    throw new Error(
+      "Expecting at least 2 arguments, incorrect number of arguments supplied",
+    );
+  }
+  return {
+    targetDailyHours: Number(args[2]),
+    dailyExerciseHours: args.slice(3).map((el) => Number(el)),
+  };
+};
 
 const calculateExercises = (
   dailyExerciseHours: Array<number>,
@@ -30,9 +47,11 @@ const calculateExercises = (
     case ((results.average - targetDailyHours) > 1):
       results.rating = 3;
       results.ratingDescription = "you're doing great! Keep it up";
+      break;
     case (results.success):
       results.rating = 2;
       results.ratingDescription = "not too bad but could be better";
+      break;
     default:
       results.rating = 1;
       results.ratingDescription = "room for improvement";
@@ -40,4 +59,15 @@ const calculateExercises = (
   return results;
 };
 
-console.log(calculateExercises([3, 0, 2, 4.5, 0, 3, 1], 2));
+try {
+  const { dailyExerciseHours, targetDailyHours } = parseExerciseArguments(
+    process.argv,
+  );
+  console.log(calculateExercises(dailyExerciseHours, targetDailyHours));
+} catch (error: unknown) {
+  if (error instanceof Error) {
+    console.log(error.message);
+  } else {
+    console.log("Something went wrong");
+  }
+}
