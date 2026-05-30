@@ -5,7 +5,7 @@ import { apiBaseUrl } from "../constants";
 
 const getAll = async () => {
   const { data } = await axios.get<Patient[]>(
-    `${apiBaseUrl}/patients`
+    `${apiBaseUrl}/patients`,
   );
 
   return data;
@@ -14,13 +14,13 @@ const getAll = async () => {
 const create = async (object: PatientFormValues) => {
   const { data } = await axios.post<Patient>(
     `${apiBaseUrl}/patients`,
-    object
+    object,
   );
 
   return data;
 };
 
 export default {
-  getAll, create
+  getAll,
+  create,
 };
-

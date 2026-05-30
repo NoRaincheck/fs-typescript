@@ -17,21 +17,25 @@ npx playwright install
 ## Running the Tests
 
 ### Run all tests
+
 ```bash
 npm test
 ```
 
 ### Run tests in UI mode (interactive)
+
 ```bash
 npm run test:ui
 ```
 
 ### Run tests in headed mode (see browser)
+
 ```bash
 npm run test:headed
 ```
 
 ### View test report
+
 ```bash
 npm run report
 ```
@@ -41,9 +45,11 @@ npm run report
 The test suite covers the following endpoints:
 
 ### GET /hello
+
 - Basic greeting endpoint
 
 ### GET /bmi
+
 - Valid BMI calculation
 - Missing height parameter
 - Missing weight parameter
@@ -51,6 +57,7 @@ The test suite covers the following endpoints:
 - Non-numeric weight
 
 ### POST /exercises
+
 - Valid exercise statistics calculation
 - Missing daily_exercises
 - Missing target
@@ -60,6 +67,7 @@ The test suite covers the following endpoints:
 ## GitHub Actions
 
 The repository includes a GitHub Actions workflow that:
+
 1. Builds and starts the healthapp server
 2. Runs the E2E tests
 3. Uploads test reports as artifacts

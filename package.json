@@ -1,0 +1,9 @@
+{
+  "type": "module",
+  "scripts": {
+     "calculateBmi": "cd healthapp && tsc && node bmiCalculator.ts"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}
