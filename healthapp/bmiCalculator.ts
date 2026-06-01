@@ -52,6 +52,6 @@ try {
   if (error instanceof Error) {
     console.log(error.message);
   } else {
-    console.log("Something went wrong")
+    console.log("Something went wrong");
   }
 }
