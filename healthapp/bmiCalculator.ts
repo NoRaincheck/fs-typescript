@@ -26,7 +26,7 @@ const getBmi = (height: number, weight: number): number => {
   return weight / (heightInMetres ** 2);
 };
 
-const calculateBmi = (height: number, weight: number): string => {
+export const calculateBmi = (height: number, weight: number): string => {
   if (height <= 0 || weight <= 0) {
     throw new Error(
       "Invalid parameters, height and weight must be positive and numeric",
@@ -45,13 +45,15 @@ const calculateBmi = (height: number, weight: number): string => {
   }
 };
 
-try {
-  const { height, weight } = parseArguments(process.argv);
-  console.log(calculateBmi(height, weight));
-} catch (error: unknown) {
-  if (error instanceof Error) {
-    console.log(error.message);
-  } else {
-    console.log("Something went wrong");
+if (process.argv[1] === import.meta.filename) {
+  try {
+    const { height, weight } = parseArguments(process.argv);
+    console.log(calculateBmi(height, weight));
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.log(error.message);
+    } else {
+      console.log("Something went wrong");
+    }
   }
 }
