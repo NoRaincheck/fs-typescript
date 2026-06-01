@@ -29,7 +29,7 @@ const calculateExercises = (
   dailyExerciseHours: Array<number>,
   targetDailyHours: number,
 ): Result => {
-  var results: Result = {
+  const results: Result = {
     periodLength: dailyExerciseHours.length,
     trainingDays:
       dailyExerciseHours.filter((dailyTime) => dailyTime > 0).length,
