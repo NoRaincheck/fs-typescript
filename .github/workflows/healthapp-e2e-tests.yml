@@ -37,8 +37,9 @@ jobs:
       run: npm install
     
     - name: Install Playwright browsers
-      working-directory: ./healthapp-tests
-      run: npx playwright install --with-deps chromium
+      uses: docker://mcr.microsoft.com/playwright:v1.44.0-jammy
+      with:
+        args: bash -c "cd /healthapp-tests && npx playwright test"
     
     - name: Run e2e tests
       working-directory: ./healthapp-tests
