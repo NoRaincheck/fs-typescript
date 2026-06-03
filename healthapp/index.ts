@@ -46,7 +46,7 @@ app.post("/exercises", (req, res) => {
   }
 
   const result = calculateExercises(dailyExercise, Number(target));
-  return res.send({ result });
+  return res.send(result);
 });
 const PORT = 3000;
 
