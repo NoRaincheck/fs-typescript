@@ -1,10 +1,10 @@
 {
   "type": "module",
   "scripts": {
-    "calculateBmi": "cd healthapp && tsc && node bmiCalculator.ts",
-    "calculateExercises": "cd healthapp && tsc && node exerciseCalculator.ts",
-    "webBmi": "cd healthapp && tsc && node index.ts",
-    "lint": "cd healthapp && eslint ."
+    "calculateBmi": "tsc && node bmiCalculator.ts",
+    "calculateExercises": "tsc && node exerciseCalculator.ts",
+    "start": "tsc && node index.ts",
+    "lint": "eslint ."
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
