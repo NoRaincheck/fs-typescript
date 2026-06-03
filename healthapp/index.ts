@@ -9,6 +9,10 @@ app.get("/ping/", (_req, res) => {
   res.send("pong");
 });
 
+app.get("/hello/", (_req, res) => {
+  res.send("Hello Full Stack");
+});
+
 app.get("/bmi", (req, res) => {
   const height: number = Number(req.query.height);
   const weight: number = Number(req.query.weight);
